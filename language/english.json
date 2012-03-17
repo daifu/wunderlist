@@ -131,6 +131,7 @@
 	"sync_not_logged_in_title": "Do you want to sync?",
 	"sync_not_exist":		    "User does not exist",
 	"change_login_data":	    "Edit account",
+	"sync_with_google_tasks":	    "Sync with Google Tasks",
 	"new_email_address":	    "New email address",
 	"new_password":			    "New password",
 	"old_password":			    "Current password",
