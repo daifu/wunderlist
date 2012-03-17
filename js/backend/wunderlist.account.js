@@ -686,7 +686,7 @@ wunderlist.account.editProfile = function() {
 
 		dialogs.openDialog(edit_profile_dialog);
 		
-	    $('.ui-widget-overlay').removeClass('ui-widget-overlay-wood');
+	  $('.ui-widget-overlay').removeClass('ui-widget-overlay-wood');
 
 		// Disconnect the live functionality
 		$('#cancel_edit_profile').die();
@@ -713,6 +713,59 @@ wunderlist.account.editProfile = function() {
 		});
 	}
 };
+
+/**
+ * Sync with Google Tasks - Use google tasks API to sync
+ * @author Daifu Ye
+**/
+wunderlist.account.syncGoogleTasks = function() {
+	if ($("[role='dialog']").length == 0)
+	{
+		google_sync_dialog = $('<div></div>').html(html.generateGoogleSyncDialogHTML()).dialog({
+			autoOpen      : false,
+			draggable     : false,
+			resizable     : false,
+			modal         : true,
+			closeOnEscape : true,
+			dialogClass   : 'dialog-google-sync',
+			title         : 'Added Google Tasks Sync',
+			open          : function() {
+				$('#google_email').val('');
+				$('#google_password').val('');
+				$('.error').hide().fadeIn("fast").text('');
+			}
+		});
+
+	  	dialogs.openDialog(google_sync_dialog);
+		
+	  	$('.ui-widget-overlay').removeClass('ui-widget-overlay-wood');
+
+		// Disconnect the live functionality
+		$('#cancel_google_sync').die();
+		$('#submit_google_sync').die();
+		$('#google_email,#google_password').die();
+
+		// Login or Register on RETURN and close dialog on ESCAPE
+		$('#google_email,#google_password').live('keyup', function(evt) {
+			if(evt.keyCode == 13) {}
+				// wunderlist.account.change_profile_data();
+			else if(evt.keyCode == 27) {}
+				// $(edit_profile_dialog).dialog('close');
+		});
+
+		// Close Edit Profile Dialog
+		$('#cancel_google_sync').live('click', function() {
+			$(google_sync_dialog).dialog('close');
+		});
+
+		// Submit changed data
+		$('#submit_google_sync').live('click', function() {
+			// wunderlist.account.change_profile_data();
+			return false;
+		});
+	}
+}
+
 
 /**
  * Change profile data - sends POST to server and changes password

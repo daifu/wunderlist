@@ -119,8 +119,9 @@ menu.initialize = function() {
 		});
 	}
 
-  // Sync with google tasks
-  accountMenuItem.addItem(wunderlist.language.data.sync_with_google_tasks, function(){ wunderlist.account.syncGoogleTasks(); menu.refocus(); })
+  	// Sync with google tasks
+	accountMenuItem.addSeparatorItem();
+  	accountMenuItem.addItem(wunderlist.language.data.sync_with_google_tasks, function(){ wunderlist.account.syncGoogleTasks(); menu.refocus(); })
 
 	downloadsMenuItem.addItem('iPhone',  function () { Titanium.Desktop.openURL('http://itunes.apple.com/us/app/wunderlist-to-do-listen/id406644151') });
 	downloadsMenuItem.addItem('iPad',    function () { Titanium.Desktop.openURL('http://itunes.apple.com/us/app/wunderlist-hd/id420670429') });

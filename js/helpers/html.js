@@ -372,6 +372,22 @@ html.generateEditProfileDialogHTML = function() {
 };
 
 /**
+ * Returns the HTML structure for the Google Task Sync
+ *
+ * @author Daifu Ye
+ */
+html.generateGoogleSyncDialogHTML = function() {
+	var html_code =
+		'<p>Please provide your login data to Google</p>' +
+		'<input class="input-normal" type="text" id="google_email" name="google_email" placeholder="Google Email" />' +
+		'<input class="input-normal" type="password" id="google_password" name="google_password" placeholder="Email Password" />' +
+		'<p class="clearfix"> <input class="input-button register" type="submit" id="submit_google_sync" value="Save" />'+
+		'<input class="input-button" type="submit" id="cancel_google_sync" value="Cancel" /></p>' +
+		'<span class="error"></div>';
+
+	return html_code;
+};
+/**
  * Shows the date in system specific format
  *
  * @author Christian Reber
